@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mb-4">약국 목록</h1>
+<div class="row">
+    {% for pharmacy in pharmacies %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ pharmacy.pname }}</h5>
+                <p class="card-text">{{ pharmacy.paddr }}</p>
+                <a href="{% url 'pharmacy_detail' pharmacy.p_id %}" class="btn btn-primary">상세 정보</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

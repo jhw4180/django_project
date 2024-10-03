@@ -1,0 +1,10 @@
+{% load static %}
+{% block content %}
+<h2> 평점 목록 </h2>
+{% for review in reviews %}
+<div>
+    평점: {{ review.value }} - 약국: {{ review.pharmacy.name }}
+    <a href="{% url 'delete_score' review.id %}"> 삭제 </a>
+</div>
+{% endfor %}
+{% endblock %}

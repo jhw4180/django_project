@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+<h1> Dashboard </h1>
+<ul>
+    {% for board in boards %}
+    <li>
+        <a href="{% url 'board-detail' board.pname.pname board.user.user_id %}">
+            제목: {{ board.title }} - 약국: {{ board.pname.pname }}
+        </a>
+    </li>
+    {% empty %}
+    <li>게시글이 없습니다.</li>
+    {% endfor %}
+</ul>
+
+<div>
+    <span class="step-links">
+        {% if is_paginated %}
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; 처음</a>
+                <a href="?page={{ page_obj.previous_page_number }}">이전</a>
+            {% endif %}
+
+            <span class="current">
+                페이지 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">다음</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">끝 &raquo;</a>
+            {% endif %}
+        {% endif %}
+    </span>
+</div>
+
+</body>
+</html>

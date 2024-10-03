@@ -1,0 +1,12 @@
+{% extends 'template/base.html' %}
+{% block title %}리뷰 작성{% endblock %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <h2>리뷰 작성</h2>
+    {{ board_form.as_p }}
+    <button type="submit">리뷰 제출</button>
+</form>
+
+{% endblock %}

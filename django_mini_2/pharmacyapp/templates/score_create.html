@@ -1,0 +1,12 @@
+{% extends 'template/base.html' %}
+{% block title %}평점 입력{% endblock %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <h2>평점 입력</h2>
+    {{ score_form.as_p }}
+    <button type="submit">평점 제출</button>
+</form>
+
+{% endblock %}

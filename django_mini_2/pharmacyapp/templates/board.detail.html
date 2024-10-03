@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 상세 정보</title>
+</head>
+<body>
+<h1>{{ board.title }}</h1>
+<p>내용: {{ board.content }}</p>
+<p>약국 이름: {{ board.pname.pname }}</p>
+<p>작성자 이메일: {{ board.user.email }}</p>
+<p>작성 시간: {{ board.uptime }}</p>
+<a href="{% url 'board-list' %}">목록으로 돌아가기</a>
+</body>
+</html>
